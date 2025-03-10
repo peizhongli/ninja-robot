@@ -13,6 +13,10 @@ asarUnpack:
 win:
   executableName: ninja-robot
 nsis:
+  oneClick: false
+  perMachine: true
+  allowElevation: false
+  allowToChangeInstallationDirectory: true
   artifactName: ${name}-${version}-setup.${ext}
   shortcutName: ${productName}
   uninstallDisplayName: ${productName}
