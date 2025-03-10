@@ -1,0 +1,107 @@
+.chat {
+  &List {
+    position: relative;
+    flex: 1;
+    width: 100%;
+    padding: 10px;
+    overflow-y: auto;
+    background: #f9fbff;
+
+    /* 定义滚动条整体样式 */
+    &::-webkit-scrollbar {
+      width: 6px; /* 滚动条宽度 */
+      height: 6px; /* 滚动条高度 */
+    }
+
+    /* 定义滚动条轨道样式 */
+    &::-webkit-scrollbar-track {
+      background-color: #f1f1f1; /* 轨道背景色 */
+      border-radius: 4px; /* 轨道圆角 */
+    }
+
+    /* 定义滚动条滑块样式 */
+    &::-webkit-scrollbar-thumb {
+      background-color: rgba(77, 107, 254, 0.5); /* 滑块背景色 */
+      border-radius: 4px; /* 滑块圆角 */
+    }
+
+    /* 鼠标悬停在滑块上时的样式 */
+    &::-webkit-scrollbar-thumb:hover {
+      background-color: rgba(77, 107, 254, 0.8); /* 悬停时滑块背景色 */
+    }
+  }
+
+  &Item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 24px;
+
+    &.left {
+      .chatItemContent {
+        display: flex;
+        align-items: center;
+        color: #1f1f1f;
+        background-color: #dbeafe;
+        border-radius: 10px 10px 10px 0;
+        box-shadow: 0 0 5px 0 rgba(245, 245, 245, 0.6);
+        min-height: 37px;
+
+        &::before {
+          left: 0;
+        }
+
+        ol,
+        ul {
+          padding-left: 24px;
+          margin: 12px 0;
+        }
+      }
+    }
+
+    &.right {
+      align-items: flex-end;
+
+      .chatItemContent {
+        color: #1f1f1f;
+        background-color: #fff;
+        border-radius: 10px 10px 0 10px;
+        box-shadow: 0 0 2px 0 rgba(77, 107, 254, 0.4);
+
+        &::before {
+          right: 0;
+        }
+      }
+    }
+
+    &Content {
+      padding: 10px;
+      width: fit-content;
+      max-width: 80%;
+      line-height: normal;
+      animation: show 0.2s;
+
+      &::before {
+        content: attr(data-time);
+        position: absolute;
+        top: -18px;
+        display: block;
+        width: max-content;
+        font-size: 12px;
+        color: #999;
+      }
+    }
+  }
+}
+
+@keyframes show {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

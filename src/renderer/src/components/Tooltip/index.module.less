@@ -1,0 +1,50 @@
+.tooltip {
+  position: fixed;
+  width: max-content;
+  display: flex;
+  z-index: 9;
+  padding: 12px 16px;
+  background-color: #fff;
+  color: #1f1f1f;
+  border-radius: 5px;
+  box-shadow: 0 0 5px 0 rgba(77, 107, 254, 0.2);
+
+  li {
+    display: inline-flex;
+    cursor: pointer;
+
+    & + li {
+      &::before {
+        content: '';
+        display: block;
+        width: 1px;
+        height: 100%;
+        margin: 0 12px;
+        background-color: #eee;
+      }
+    }
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+  }
+
+  &.top {
+    &::before {
+      top: 100%;
+      border-top: 4px solid rgba(0, 0, 0, 0.7);
+    }
+  }
+
+  &.bottom {
+    &::before {
+      bottom: 100%;
+      border-bottom: 4px solid rgba(0, 0, 0, 0.7);
+    }
+  }
+}
